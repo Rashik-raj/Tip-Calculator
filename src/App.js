@@ -9,25 +9,8 @@ import './App.css';
 
 class App extends Component {
     state = {
-      tips: [
-        {
-          id: uuid(),
-          amount: 500,
-          person_count: 3,
-          tip: 50,
-          total: 550,
-          total_per_person: 183.33
-        },
-        {
-          id: uuid(),
-          amount: 1000,
-          person_count: 3,
-          tip: 100,
-          total: 1100,
-          total_per_person: 366.66
-        }
-      ],
-      len: 1,
+      tips: [],
+      len: 0,
   }
 
   addTip = (amount, person_count) => {
@@ -40,7 +23,8 @@ class App extends Component {
       total_per_person: (Number(amount) + (Number(amount)*10/100)) / person_count,
     }
     this.setState({
-      tips: [...this.state.tips, newTip]
+      tips: [...this.state.tips, newTip],
+      len: this.len + 1
     })
   }
   render() {
