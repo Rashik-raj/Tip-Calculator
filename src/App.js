@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
+import NotFound from './components/pages/NotFound';
 import AddTips from './components/AddTip';
 import Tips from './components/Tips';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -34,12 +35,15 @@ class App extends Component {
         <div className="App">
           <Header/>
           <div className="container">
-            <Route exact path="/">
-              <br/>
-              <AddTips addTip={this.addTip}/>
-              <br/>
-              <Tips tips={this.state.tips} len={this.state.len}/>
-            </Route>
+            <Switch>
+              <Route exact path="/">
+                <br/>
+                <AddTips addTip={this.addTip}/>
+                <br/>
+                <Tips tips={this.state.tips} len={this.state.len}/>
+              </Route>
+              <Route path="" component={NotFound}/>
+            </Switch>
           </div>
           <Footer/>
         </div>
