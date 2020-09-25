@@ -5,6 +5,7 @@ class TipItem extends Component {
         return (
             <React.Fragment>
                 <tr>
+                    <td>{this.props.index + 1}</td>
                     <td>{this.props.tip.amount}</td>
                     <td>{this.props.tip.person_count}</td>
                     <td>{this.props.tip.tip}</td>

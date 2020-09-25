@@ -9,9 +9,10 @@ class Tips extends Component {
             return <h1>You don't have a tip to display. Please, Add a tip.</h1>;
         } else {
             return (
-                <Table dark>
-                    <thead>
+                <Table striped>
+                    <thead class="thead-dark">
                         <tr>
+                            <th>#</th>
                             <th>Amount</th>
                             <th>Number of Person</th>
                             <th>Tip</th>
@@ -20,7 +21,7 @@ class Tips extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        { this.props.tips.map(tip => <TipItem key={tip.id} tip={tip}/>) }
+                        { this.props.tips.map((tip, index) => <TipItem key={tip.id} index={index} tip={tip}/>) }
                     </tbody>
                 </Table>
             );

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
 import AddTips from './components/AddTip';
 import Tips from './components/Tips';
 import './App.css';
-
 
 class App extends Component {
     state = {
@@ -43,11 +45,20 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <h1>Tip Calculator</h1>
-        <AddTips addTip={this.addTip}/>
-        <Tips tips={this.state.tips} len={this.state.len}/>
-      </div>
+      <Router>
+        <div className="App">
+          <Header/>
+          <div className="container">
+            <Route exact path="/">
+              <br/>
+              <AddTips addTip={this.addTip}/>
+              <br/>
+              <Tips tips={this.state.tips} len={this.state.len}/>
+            </Route>
+          </div>
+          <Footer/>
+        </div>
+      </Router>
     );
   }
 }
