@@ -12,5 +12,6 @@ const headerStyle = {
     margin: '0',
     backgroundColor: '#3f3f3f',
     color: '#fff',
-    padding: '10px'
+    padding: '10px',
+    width: '100%',
 }

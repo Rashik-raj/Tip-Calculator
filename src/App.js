@@ -5,6 +5,7 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import AddTips from './components/AddTip';
 import Tips from './components/Tips';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 class App extends Component {
@@ -16,11 +17,11 @@ class App extends Component {
   addTip = (amount, person_count) => {
     const newTip = {
       id: uuid(),
-      amount,
+      amount: Number(amount).toFixed(2),
       person_count,
-      tip: Number(amount)*10/100,
-      total: Number(amount) + (Number(amount)*10/100),
-      total_per_person: (Number(amount) + (Number(amount)*10/100)) / person_count,
+      tip: (Number(amount)*10/100).toFixed(2),
+      total: (Number(amount) + (Number(amount)*10/100)).toFixed(2),
+      total_per_person: ((Number(amount) + (Number(amount)*10/100)) / person_count).toFixed(2),
     }
     this.setState({
       tips: [...this.state.tips, newTip],

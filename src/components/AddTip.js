@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Form, Input, Button} from 'reactstrap';
 
 class AddTip extends Component {
     state = {
@@ -33,11 +34,11 @@ class AddTip extends Component {
 
     render() {
         return (
-            <form onSubmit={this.onSubmit} style={{ display: 'flex' }}>
-                <input type="text" name="amount" placeholder="Amount" value={this.state.amount} onChange={this.onChange} style={inputStyle}/>
-                <input type="text" name="person_count" placeholder="Number of Person" value={this.state.number} onChange={this.onChange} style={inputStyle}/>
-                <input type="submit" value="Add Tip" style={submitBtnStyle}/>
-            </form>
+            <Form onSubmit={this.onSubmit} style={{ display: 'flex' }}>
+                <Input type="text" className="col-12" name="amount" placeholder="Amount" value={this.state.amount} onChange={this.onChange} style={inputStyle}/>
+                <Input type="text" name="person_count" placeholder="# of Person" value={this.state.number} onChange={this.onChange} style={inputStyle}/>
+                <Button>Add Tip</Button>
+            </Form>
         )
     }
 }
@@ -48,17 +49,6 @@ const inputStyle = {
     margin: '1px',
     borderRadius: '5px',
     outline: 'none'
-}
-
-const submitBtnStyle = {
-    background: '#555',
-    color: '#fff',
-    flex: '1',
-    margin: '1px',
-    padding: '10px',
-    borderRadius: '5px',
-    outline: 'none',
-    cursor: 'pointer'
 }
 
 export default AddTip;
